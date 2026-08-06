@@ -448,7 +448,6 @@
             font-size: 0.8rem;
             color: var(--text-muted);
         }
-
         footer {
             background-color: var(--card-bg);
             border-top: 1px solid var(--border-light);
@@ -456,6 +455,90 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
+        }
+
+        /* Dynamic Responsiveness Overrides */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .contact-info a {
+                margin: 0 5px;
+            }
+            nav {
+                justify-content: center;
+                gap: 15px;
+            }
+            main {
+                margin: 15px auto;
+                padding: 0 15px;
+            }
+            .hero {
+                padding: 25px 20px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero h2 {
+                font-size: 1.15rem;
+            }
+            .tabs-list {
+                flex-direction: column;
+                width: 100%;
+                gap: 5px;
+            }
+            .tab-btn {
+                width: 100%;
+                text-align: center;
+                border-radius: 4px !important;
+                border: 1px solid var(--border-light) !important;
+            }
+            .console-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .console-btn-group {
+                width: 100%;
+                margin-top: 10px;
+            }
+            .console-btn {
+                flex: 1;
+                text-align: center;
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            .console-btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            .console-btn {
+                width: 100%;
+            }
+            .console-container {
+                padding: 15px;
+            }
+            .console-output {
+                height: 180px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -563,7 +646,7 @@
             <!-- Prior Experience Panel -->
             <div class="tab-panel" id="panel-prev" role="tabpanel">
                 <div class="project-card">
-                    <h3>Salesforce B2B E-Commerce Platform Validation <span class="project-badge">Salesforce SME</span></h3>
+                    <h3>Salesforce B2B E-Commerce Platform Validation <span class="project-badge">Salesforce QA Specialist</span></h3>
                     <div class="project-meta">Infosys (Johnson Controls Project) | Mar 2023 - Oct 2024</div>
                     <ul>
                         <li><strong>Checkout & Billing Validation:</strong> Led QA validation for checkout, payments, invoices, warranty registration, and CPQ modules on a Salesforce Sales Cloud platform.</li>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaswanth Chinta | QA SME & Quality Architect Portfolio</title>
+    <style>
+        :root {
+            --bg-primary: #FCFCFC;
+            --card-bg: #FFFFFF;
+            --text-primary: #222222;
+            --text-muted: #595959;
+            --primary-accent: #1F4E78;
+            --secondary-accent: #2E74B5;
+            --border-light: #E0E0E0;
+            --success-color: #27AE60;
+            --console-bg: #1B1E23;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px 40px;
+        }
+
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .contact-info a {
+            color: var(--secondary-accent);
+            text-decoration: none;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            width: 100%;
+            border-top: 1px solid var(--border-light);
+            padding-top: 10px;
+            margin-top: 10px;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a:focus {
+            color: var(--primary-accent);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--primary-accent);
+        }
+
+        .hero h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--secondary-accent);
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 850px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Metrics grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .metric-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary-accent);
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Tab Layout */
+        .tabs-container {
+            margin-bottom: 40px;
+        }
+
+        .tabs-list {
+            display: flex;
+            border-bottom: 2px solid var(--border-light);
+            margin-bottom: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover, .tab-btn:focus {
+            color: var(--primary-accent);
+            outline: none;
+            border-bottom: 3px solid var(--border-light);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-accent);
+            border-bottom: 3px solid var(--primary-accent);
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* Experience and Project Grid */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: var(--primary-accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-badge {
+            background-color: #E2ECF7;
+            color: var(--primary-accent);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .project-meta {
+            color: var(--secondary-accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .project-card ul {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .project-card li {
+            margin-bottom: 8px;
+        }
+
+        .project-skills-used {
+            border-top: 1px dashed var(--border-light);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .project-skills-used h5 {
+            margin: 0 0 10px 0;
+            color: var(--primary-accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: #F0F4F8;
+            color: var(--primary-accent);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid var(--border-light);
+        }
+
+        /* Triage Interactive Console */
+        .console-container {
+            background-color: var(--console-bg);
+            border-radius: 8px;
+            padding: 25px;
+            color: #A9B2C3;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.95rem;
+            border: 1px solid #2B303B;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .console-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #2B303B;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: #65737E;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .console-btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .console-btn {
+            background-color: var(--primary-accent);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .console-btn:hover, .console-btn:focus {
+            background-color: var(--secondary-accent);
+            outline: 2px solid white;
+        }
+
+        .console-output {
+            height: 220px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
+        /* Timeline and Awards */
+        .timeline {
+            border-left: 2px solid var(--border-light);
+            padding-left: 30px;
+            position: relative;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--card-bg);
+            border: 2px solid var(--primary-accent);
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary-accent);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            color: var(--primary-accent);
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Skills section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .skills-category {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .skills-category h4 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-accent);
+            padding-bottom: 8px;
+            color: var(--primary-accent);
+            margin-bottom: 12px;
+        }
+
+        .skills-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-category li {
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--border-light);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Certifications Grid */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .cert-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .cert-icon {
+            font-size: 1.8rem;
+            color: var(--secondary-accent);
+        }
+
+        .cert-info h5 {
+            margin: 0 0 5px 0;
+            font-size: 0.95rem;
+            color: var(--primary-accent);
+        }
+
+        .cert-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-light);
+            padding: 25px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header role="banner">
+        <div class="header-container">
+            <div>
+                <a href="#" class="logo">YC | QA Architect Portfolio</a>
+            </div>
+            <div class="contact-info">
+                <span>Phone: +91-7997674517</span> &bull; <span>Email: chintayaswanth27@gmail.com</span><br/>
+                <a href="https://www.linkedin.com/in/yaswanthchinta-qa/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/YaswanthCH-QA" target="_blank">GitHub</a>
+                <a href="https://www.salesforce.com/trailblazer/yaswanthch27" target="_blank">Trailhead</a>
+            </div>
+            <nav role="navigation">
+                <a href="#about">About</a>
+                <a href="#projects">Experience</a>
+                <a href="#skills">Skills Directory</a>
+                <a href="#certs">Certifications</a>
+                <a href="#awards">Honors</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="about">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Yaswanth Chinta</h1>
+            <h2>QA Engineer | Subject Matter Expert (SME) | Triage Specialist</h2>
+            <p>I find bugs that ship to millions of users and I build the systems that stop them from getting there. Working at the intersection of deep technical testing and operational efficiency, I've managed Android OS build validations for Google Pixel devices and tested Salesforce-integrated B2B platforms. I don't just find defects, I design workflow solutions (like scripting custom bug-labeling pipelines) that save teams valuable time.</p>
+            <p style="margin-bottom:0; font-size: 0.95rem; font-weight: bold; color: var(--secondary-accent);">Currently upskilling to: SDET & AI Quality Architect (Python, Playwright, API validation, Gemini APIs)</p>
+        </section>
+
+        <!-- Metrics Row -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-number">20+</div>
+                <div class="metric-label">Daily OS platform defects caught</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">~35%</div>
+                <div class="metric-label">Mean Time to Resolution (MTTR) Cut</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">25%</div>
+                <div class="metric-label">Salesforce Production Defect Reduction</div>
+            </div>
+        </div>
+
+        <!-- Dynamic Test Runner Console -->
+        <section class="console-container" aria-label="Interactive QA Test Runner Console">
+            <div class="console-header">
+                <span>Interactive Terminal Console &mdash; Multi-Audit Simulation</span>
+                <div class="console-btn-group">
+                    <button class="console-btn" id="run-btn-e2e" onclick="startMockE2ETest()">Run WCAG Web Audit</button>
+                    <button class="console-btn" style="background-color: var(--secondary-accent);" id="run-btn-triage" onclick="startMockTriageTest()">Simulate Android Triage</button>
+                </div>
+            </div>
+            <div class="console-output" id="console-out">Select an audit option above to see a live simulation of my automated tools running checks in real-time...</div>
+        </section>
+
+        <!-- Project & Profile Tabs -->
+        <section class="tabs-container" id="projects">
+            <ul class="tabs-list" role="tablist">
+                <li><button class="tab-btn active" id="tab-curr" role="tab" aria-selected="true" onclick="switchTab('curr')">Google Triage Project (Jan 2025 - Present)</button></li>
+                <li><button class="tab-btn" id="tab-prev" role="tab" aria-selected="false" onclick="switchTab('prev')">Salesforce E-Commerce Project (Mar 2023 - Oct 2024)</button></li>
+            </ul>
+
+            <!-- Current Experience Panel -->
+            <div class="tab-panel active" id="panel-curr" role="tabpanel">
+                <div class="project-card">
+                    <h3>Android App Triage & OS Build Validation <span class="project-badge">Google Pixel Triage SME</span></h3>
+                    <div class="project-meta">Infosys (Google Project) | Jan 2025 - Present</div>
+                    <ul>
+                        <li><strong>OS Validation:</strong> Validated Android OS builds across 5,000+ applications using CL bisection and log analysis, catching 20+ platform and app-level defects daily.</li>
+                        <li><strong>Triage Automation Script:</strong> Developed automated bug-classification and auto-labeling script utilities in JavaScript and Google Apps Script, cutting manual repetitive minor effort by <strong>6%</strong> and reducing MTTR by <strong>~35%</strong>.</li>
+                        <li><strong>Pipeline Ownership:</strong> Managed high-volume bug triage pipelines across N+ engineering teams, routing P0 tickets within SLA windows (Earned the "Google Glory Award").</li>
+                        <li><strong>Android Auto Infotainment:</strong> Tested Android Auto infotainment environments to validate in-vehicle UI, synchronization behavior, and cross-build stability.</li>
+                        <li><strong>AI Log Triage:</strong> Introduced AI-assisted log summarization workflows to accelerate debugging and handoffs between QA and engineering.</li>
+                        <li><strong>Process Improvements:</strong> Identified and implemented specialized browser extensions to streamline process tagging across team dashboards.</li>
+                        <li><strong>KPI & Dashboard Leadership:</strong> Partnered with Google FTEs to establish team performance KPIs for the Triage Dashboard. Extracted backend data variables using PLX queries, cross-validated outputs, and managed ad-hoc metrics requests.</li>
+                        <li><strong>Executive Reporting & Communication:</strong> Prepared program review decks and contributed during dashboard metrics review sessions with senior leadership. Translated technical data metrics into clear business narratives to align stakeholders and build cross-team trust.</li>
+                    </ul>
+                    <div class="project-skills-used">
+                        <h5>Project Tech Stack & Skills</h5>
+                        <div class="tag-container">
+                            <span class="skill-tag">Android OS Validation</span>
+                            <span class="skill-tag">ADB CLI</span>
+                            <span class="skill-tag">Android Logcat</span>
+                            <span class="skill-tag">CL Bisection</span>
+                            <span class="skill-tag">Buganizer</span>
+                            <span class="skill-tag">Google Apps Script</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Triage Automation</span>
+                            <span class="skill-tag">PLX Scripting (SQL)</span>
+                            <span class="skill-tag">Tombstone diagnostics</span>
+                            <span class="skill-tag">AI-Assisted QA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prior Experience Panel -->
+            <div class="tab-panel" id="panel-prev" role="tabpanel">
+                <div class="project-card">
+                    <h3>Salesforce B2B E-Commerce Platform Validation <span class="project-badge">Salesforce SME</span></h3>
+                    <div class="project-meta">Infosys (Johnson Controls Project) | Mar 2023 - Oct 2024</div>
+                    <ul>
+                        <li><strong>Checkout & Billing Validation:</strong> Led QA validation for checkout, payments, invoices, warranty registration, and CPQ modules on a Salesforce Sales Cloud platform.</li>
+                        <li><strong>Salesforce Admin Operations:</strong> Managed Salesforce sandboxes, created mock test accounts, and seeded billing variables as a Certified Salesforce Admin.</li>
+                        <li><strong>Cross-Platform Web Testing:</strong> Conducted responsive and cross-browser testing using BrowserStack across Safari, Chrome, Edge, iOS, and Android viewports.</li>
+                        <li><strong>Production Defect Reduction:</strong> Reduced mobile-specific post-release defects by <strong>25%</strong> through targeted UI/UX, network condition throttling, and viewport orientation checks.</li>
+                        <li><strong>Localization Auditing:</strong> Conducted strict word-by-word validations of translated page text across multiple languages to ensure layout sizing and translation accuracy.</li>
+                        <li><strong>Requirement Discovery:</strong> Participated in sprint planning, user story design, defect reviews, and requirement clarification sessions via Azure DevOps.</li>
+                    </ul>
+                    <div class="project-skills-used">
+                        <h5>Project Tech Stack & Skills</h5>
+                        <div class="tag-container">
+                            <span class="skill-tag">Salesforce Sales Cloud</span>
+                            <span class="skill-tag">Salesforce Admin</span>
+                            <span class="skill-tag">Salesforce CPQ</span>
+                            <span class="skill-tag">BrowserStack</span>
+                            <span class="skill-tag">Postman API</span>
+                            <span class="skill-tag">JMeter</span>
+                            <span class="skill-tag">UFT</span>
+                            <span class="skill-tag">Selenium</span>
+                            <span class="skill-tag">Agile Scrum</span>
+                            <span class="skill-tag">Azure DevOps</span>
+                            <span class="skill-tag">Localization (L10n)</span>
+                            <span class="skill-tag">WCAG Accessibility</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Skills Inventory -->
+        <section id="skills">
+            <h2 style="color: var(--primary-accent); margin-bottom: 20px;">Skills & Tooling Directory</h2>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <h4>Manual OS & Mobile Triage</h4>
+                    <ul>
+                        <li>Android OS Validation</li>
+                        <li>ADB CLI & Logcat</li>
+                        <li>CL Bisection</li>
+                        <li>Tombstone diagnostics</li>
+                        <li>Mobility & Device testing</li>
+                        <li>Buganizer / Azure DevOps</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h4>Salesforce & Web Validation</h4>
+                    <ul>
+                        <li>Manual & Functional QA</li>
+                        <li>Regression, Sanity & Smoke</li>
+                        <li>Ad-hoc & Exploratory</li>
+                        <li>Salesforce Sales Cloud</li>
+                        <li>Salesforce CPQ / Billing</li>
+                        <li>Checkout & Payments</li>
+                        <li>BrowserStack cross-testing</li>
+                        <li>Localization & translation checks</li>
+                        <li>WCAG Accessibility (a11y)</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h4>Data & Languages</h4>
+                    <ul>
+                        <li>JavaScript (Working Knowledge)</li>
+                        <li>Google Apps Script</li>
+                        <li>SQL & PLX Scripting</li>
+                        <li>Java (Core Foundations)</li>
+                        <li>HTML5 & CSS3</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h4>Automation & Future Stack</h4>
+                    <ul>
+                        <li>Playwright UI/API</li>
+                        <li>Python</li>
+                        <li>Postman API testing</li>
+                        <li>JMeter / Performance basics</li>
+                        <li>UFT / JUnit / Selenium</li>
+                        <li>Claude & Gemini APIs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Gallery -->
+        <section id="certs">
+            <h2 style="color: var(--primary-accent); margin-bottom: 20px;">Professional Certifications</h2>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <span class="cert-icon">☁️</span>
+                    <div class="cert-info">
+                        <h5>Salesforce Certified Administrator</h5>
+                        <p>Salesforce &bull; 2024</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <span class="cert-icon">🤖</span>
+                    <div class="cert-info">
+                        <h5>Salesforce Certified AI Associate</h5>
+                        <p>Salesforce &bull; 2024</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <span class="cert-icon">✨</span>
+                    <div class="cert-info">
+                        <h5>Prompt Design in Vertex AI</h5>
+                        <p>Google Cloud &bull; 2025</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <span class="cert-icon">🚀</span>
+                    <div class="cert-info">
+                        <h5>Explore Generative AI with Gemini</h5>
+                        <p>Google Cloud Skills Boost &bull; 2025</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <span class="cert-icon">🛠️</span>
+                    <div class="cert-info">
+                        <h5>Atlassian Rovo Certification</h5>
+                        <p>Atlassian &bull; 2025</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <span class="cert-icon">🔄</span>
+                    <div class="cert-info">
+                        <h5>Global Agile Developer</h5>
+                        <p>Infosys &bull; 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline of Honors -->
+        <section id="awards">
+            <h2 style="color: var(--primary-accent); margin-bottom: 20px;">Timeline of Honors & Awards</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2026</div>
+                    <div class="timeline-title">Google Glory Award (Infosys RISE H1-FY26)</div>
+                    <p class="timeline-desc">Recognized in the Individual Category as a "Good Performer" for dedication, consistency, and process validation excellence on the Google project.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">December 2025</div>
+                    <div class="timeline-title">Certificate of Appreciation (Infosys Insta Award)</div>
+                    <p class="timeline-desc">Issued by Manager for proposing and implementing the automated Apps Script triage solution that significantly decreased log ingestion latency.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2024</div>
+                    <div class="timeline-title">Gracias &mdash; Busy Bee Recognition</div>
+                    <p class="timeline-desc">Recognized for managing multiple complex validation responsibilities and providing peer assistance across tasks.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">December 2023</div>
+                    <div class="timeline-title">Gracias &mdash; Client Champion</div>
+                    <p class="timeline-desc">Awarded for keeping client-focused parameters at the center of all team deliveries.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Yaswanth Chinta. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const panels = document.querySelectorAll('.tab-panel');
+            
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            if (tabId === 'curr') {
+                document.getElementById('tab-curr').classList.add('active');
+                document.getElementById('tab-curr').setAttribute('aria-selected', 'true');
+                document.getElementById('panel-curr').classList.add('active');
+            } else {
+                document.getElementById('tab-prev').classList.add('active');
+                document.getElementById('tab-prev').setAttribute('aria-selected', 'true');
+                document.getElementById('panel-prev').classList.add('active');
+            }
+        }
+
+        function disableConsoleButtons(disabled) {
+            document.getElementById('run-btn-e2e').disabled = disabled;
+            document.getElementById('run-btn-triage').disabled = disabled;
+        }
+
+        function startMockE2ETest() {
+            const out = document.getElementById('console-out');
+            disableConsoleButtons(true);
+            out.textContent = "";
+
+            const logs = [
+                "[INFO] [2026-08-03T16:30:00Z] Initializing Playwright Test Framework...",
+                "[INFO] launching browser instances headlessly (Chromium, WebKit)...",
+                "[INFO] navigating to: file:///portfolio.html",
+                "[PASS] title assertion matched: 'Yaswanth Chinta | QA SME...'",
+                "[PASS] aria-labels and semantic HTML structure validation successful.",
+                "[AUDIT] testing responsive layouts at viewport 375x812 (Mobile)...",
+                "[PASS] grid elements stacked correctly, menu elements visible.",
+                "[INFO] [SUCCESS] All assertions completed in 720ms. Status: Green."
+            ];
+
+            let i = 0;
+            function printLog() {
+                if (i < logs.length) {
+                    out.textContent += logs[i] + "\n";
+                    out.scrollTop = out.scrollHeight;
+                    i++;
+                    setTimeout(printLog, 150);
+                } else {
+                    disableConsoleButtons(false);
+                }
+            }
+            printLog();
+        }
+
+        function startMockTriageTest() {
+            const out = document.getElementById('console-out');
+            disableConsoleButtons(true);
+            out.textContent = "";
+
+            const logs = [
+                "[ADB] connecting to Pixel local target via USB bridge...",
+                "[ADB] executing: adb logcat -d *:E",
+                "[FATAL] 16:54:02.112 process com.google.android.apps.photos crashed.",
+                "[FATAL] java.lang.NullPointerException: Cannot read field 'mNativeContext' because 'this' is null",
+                "        at com.google.android.apps.photos.draw.NativeCanvas.drawText(NativeCanvas.java:42)",
+                "[TRIAGE] raw stack trace captured. Length: 1048 bytes.",
+                "[TRIAGE] calling AI Triage Agent API (Gemini-1.5-Flash)...",
+                "[AI] Analyzing exceptions stack hierarchy...",
+                "[AI] Identified component: Photos-Android (Photos App Ecosystem)",
+                "[AI] Suggested Priority: P1 (NullPointer blocks Photos Canvas launch)",
+                "[TRIAGE] Generating structured JSON ticket payload for Buganizer...",
+                "\n{\n  \"title\": \"[Crash] NullPointerException in NativeCanvas.drawText\",\n  \"component\": \"Photos-Android\",\n  \"priority\": \"P1\",\n  \"severity\": \"S1\",\n  \"assignee\": \"photos-native-devs-triage@google.com\",\n  \"tag\": \"RISE-AutoTriage-6Percent\"\n}\n",
+                "[SUCCESS] Ticket payload generated in 950ms. Defect successfully routed."
+            ];
+
+            let i = 0;
+            function printLog() {
+                if (i < logs.length) {
+                    out.textContent += logs[i] + "\n";
+                    out.scrollTop = out.scrollHeight;
+                    i++;
+                    setTimeout(printLog, 150);
+                } else {
+                    disableConsoleButtons(false);
+                }
+            }
+            printLog();
+        }
+    </script>
+</body>
+</html>

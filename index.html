@@ -50,20 +50,27 @@
         }
 
         .contact-info {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-align: right;
+           font-size: 0.9rem;
+           color: var(--text-muted);
+           text-align: center; /* keep consistent with header */
+           margin-bottom: 10px;
         }
 
         .contact-info a {
-            color: var(--secondary-accent);
-            text-decoration: none;
-            margin-left: 10px;
-            font-weight: bold;
+           color: var(--secondary-accent);
+           text-decoration: none;
+           margin: 0 8px;
+           font-weight: bold;
         }
 
         .contact-info a:hover {
-            text-decoration: underline;
+           text-decoration: underline;
+        }
+
+        .contact-info .divider::before {
+           content: "|";
+           margin: 0 8px;
+           color: var(--border-light);
         }
 
         nav {
@@ -530,49 +537,111 @@
   body {
     padding: 0 10px; /* consistent side spacing */
   }
+
   .hero {
     padding: 20px 10px; /* reduce left gap */
   }
+
   .hero h1 {
     font-size: 1.75rem;
+    text-align: center;
   }
+
+  .hero h2 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
   p {
     font-size: 0.95rem; /* shrink body text */
+    line-height: 1.4;
   }
+
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 5px 8px;
+    font-size: 0.9rem;
+  }
+
+  .contact-info {
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .contact-info a {
+    margin: 0 6px;
+    font-weight: bold;
+  }
+
   .metrics-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* stack metrics */
   }
+
   .console-btn-group {
     flex-direction: column;
     width: 100%;
+    margin-top: 10px;
+    justify-content: center;
   }
+
   .console-btn {
     width: 100%;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    padding: 8px 12px;
   }
+
   .console-container {
     padding: 15px;
   }
+
   .console-output {
     height: 180px;
     font-size: 0.85rem;
   }
+
+  /* Timeline adjustments */
+  .timeline {
+    padding-left: 20px; /* tighter for mobile */
+  }
+
   .timeline-item::before {
-    left: -25px; /* prevent overlap */
+    left: -25px;   /* closer to text */
+    width: 14px;   /* smaller circle */
+    height: 14px;
+    top: 4px;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+  }
+
+  .timeline-date {
+    font-size: 0.8rem;
   }
 }
    </style>
-</head>
-<body>
+   </head>
+   <body>
     <header role="banner">
         <div class="header-container">
             <div>
                 <a href="#" class="logo">YC | QA Architect Portfolio</a>
             </div>
             <div class="contact-info">
-                <span>Phone: +91-7997674517</span> &bull; <span>Email: chintayaswanth27@gmail.com</span><br/>
-                <a href="https://www.linkedin.com/in/yaswanthchinta-qa/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/YaswanthCH-QA" target="_blank">GitHub</a>
-                <a href="https://www.salesforce.com/trailblazer/yaswanthch27" target="_blank">Trailhead</a>
+            <span class="phone"><a href="tel:+917997674517">+91‑7997674517</a></span>
+            <span class="divider"></span>
+            <span class="email"><a href="mailto:chintayaswanth27@gmail.com">chintayaswanth27@gmail.com</a></span><br/>
+            <a href="https://www.linkedin.com/in/yaswanthchinta-qa/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/YaswanthCH-QA" target="_blank">GitHub</a>
+            <a href="https://www.salesforce.com/trailblazer/yaswanthch27" target="_blank">Trailhead</a>
             </div>
             <nav role="navigation">
                 <a href="#about">About</a>

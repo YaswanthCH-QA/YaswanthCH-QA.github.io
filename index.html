@@ -457,93 +457,112 @@
             font-size: 0.9rem;
         }
 
-        /* Dynamic Responsiveness Overrides */
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
-            .header-container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .contact-info {
-                text-align: center;
-                margin-bottom: 10px;
-            }
-            .contact-info a {
-                margin: 0 5px;
-            }
-            nav {
-                justify-content: center;
-                gap: 15px;
-            }
-            main {
-                margin: 15px auto;
-                padding: 0 15px;
-            }
-            .hero {
-                padding: 25px 20px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero h2 {
-                font-size: 1.15rem;
-            }
-            .tabs-list {
-                flex-direction: column;
-                width: 100%;
-                gap: 5px;
-            }
-            .tab-btn {
-                width: 100%;
-                text-align: center;
-                border-radius: 4px !important;
-                border: 1px solid var(--border-light) !important;
-            }
-            .console-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .console-btn-group {
-                width: 100%;
-                margin-top: 10px;
-            }
-            .console-btn {
-                flex: 1;
-                text-align: center;
-                font-size: 0.85rem;
-                padding: 8px 12px;
-            }
-        }
+/* Dynamic Responsiveness Overrides */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .contact-info {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .contact-info a {
+    margin: 0 5px;
+  }
+  nav {
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* ensures links don’t overflow */
+  }
+  main {
+    margin: 15px auto;
+    padding: 0 15px;
+  }
+  .hero {
+    padding: 25px 20px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+    text-align: center; /* center headings */
+  }
+  .hero h2 {
+    font-size: 1.15rem;
+    text-align: center;
+  }
+  .hero p {
+    text-align: center; /* override justify for mobile */
+  }
+  .tabs-list {
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+  }
+  .tab-btn {
+    width: 100%;
+    text-align: center;
+    border-radius: 4px !important;
+    border: 1px solid var(--border-light) !important;
+  }
+  .console-header {
+    flex-direction: column;
+    align-items: center; /* fix left alignment */
+    text-align: center;
+  }
+  .console-btn-group {
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center; /* center buttons */
+  }
+  .console-btn {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+}
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.75rem;
-            }
-            .metrics-grid {
-                grid-template-columns: 1fr;
-            }
-            .console-btn-group {
-                flex-direction: column;
-                width: 100%;
-            }
-            .console-btn {
-                width: 100%;
-            }
-            .console-container {
-                padding: 15px;
-            }
-            .console-output {
-                height: 180px;
-                font-size: 0.85rem;
-            }
-        }
-    </style>
+@media (max-width: 480px) {
+  body {
+    padding: 0 10px; /* consistent side spacing */
+  }
+  .hero {
+    padding: 20px 10px; /* reduce left gap */
+  }
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+  p {
+    font-size: 0.95rem; /* shrink body text */
+  }
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .console-btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .console-btn {
+    width: 100%;
+  }
+  .console-container {
+    padding: 15px;
+  }
+  .console-output {
+    height: 180px;
+    font-size: 0.85rem;
+  }
+  .timeline-item::before {
+    left: -25px; /* prevent overlap */
+  }
+}
+   </style>
 </head>
 <body>
-
     <header role="banner">
         <div class="header-container">
             <div>
@@ -558,7 +577,7 @@
             <nav role="navigation">
                 <a href="#about">About</a>
                 <a href="#projects">Experience</a>
-                <a href="#skills">Skills Directory</a>
+                <a href="#skills" aria-label="Skills Directory">Skills Directory</a>
                 <a href="#certs">Certifications</a>
                 <a href="#awards">Honors</a>
             </nav>

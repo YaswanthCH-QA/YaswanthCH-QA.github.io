@@ -433,7 +433,7 @@ footer{
             <dt>tenure</dt>
             <dd>4 years (Oct 2022 to present)</dd>
             <dt>recognition</dt>
-            <dd>Google Glory Award <span class="chip p0">P0 IMPACT</span></dd>
+            <dd>ENG RISE Business Ninja Award <span class="chip p0">P0 IMPACT</span></dd>
             <dt>targeting</dt>
             <dd>QA Engineering · SDET · AI Quality Engineering · Triage Automation</dd>
           </dl>
@@ -492,7 +492,7 @@ footer{
           <dl>
             <div><dt class="problem">problem</dt><dd>An automated validation bot bounced incoming defects straight back to the reporter whenever the attached logs were missing. That triggered reassignment ping-pong loops, and critical bugs silently dropped out of the triage queue entirely.</dd></div>
             <div><dt class="action">action</dt><dd>Specified and co-authored a backward-compatible opt-in mode for the bot, written in Go with AI assistance and taken through team code review. Instead of reassigning on a failed check, the bot now waits out a short upload grace period, then posts a non-destructive prompt asking the reporter for the missing logs while the ticket stays anchored in the triage queue. Wrote seven unit test suites covering every rule permutation.</dd></div>
-            <div><dt class="result">result</dt><dd>Merged into the production codebase with a <strong>100% pass rate across 285 automated test targets</strong> in continuous integration. Gave internal pre-release builds a safe, opt-in quality gate that ended reporter ping-pong without sacrificing defect visibility.</dd></div>
+            <div><dt class="result">result</dt><dd>Merged into the production codebase with a <strong>100% pass rate across 285 automated test targets</strong> in continuous integration, cutting ticket turnaround time by roughly 40%. Gave internal pre-release builds a safe, opt-in quality gate that ended reporter ping-pong without sacrificing defect visibility.</dd></div>
           </dl>
           <div class="tags"><span class="tag">Go (AI-assisted)</span><span class="tag">agent config</span><span class="tag">HITL</span><span class="tag">unit testing</span><span class="tag">code review</span><span class="tag">CI/CD</span></div>
         </div>
@@ -510,8 +510,8 @@ footer{
         <div class="rec-body">
           <dl>
             <div><dt class="problem">problem</dt><dd>Unassigned, unstructured bug reports arrived faster than anyone could map them onto the right owning team. Looking up who owns a given subsystem was the bottleneck, not diagnosing the crash itself.</dd></div>
-            <div><dt class="action">action</dt><dd>Designed a multi-tier classification assistant on Gemini foundation models. Prompt chaining and task decomposition split routing into three separate phases. First extract the exception domain, then rank the candidate owning teams, then validate the ownership boundary. Each phase is inspectable on its own, so a wrong answer can be traced to the step that produced it. Every inference is grounded in past ticket resolutions and the real ownership tree, which stops the model inventing destinations that do not exist.</dd></div>
-            <div><dt class="result">result</dt><dd>Verifiable routing recommendations in seconds rather than minutes, cutting manual lookup overhead and <strong>substantially reducing inter-team ticket hops</strong>, benchmarked against a 36-scenario suite.</dd></div>
+            <div><dt class="action">action</dt><dd>Designed a multi-tier classification assistant on Gemini foundation models. Prompt chaining and task decomposition split routing into three separate phases. First extract the exception domain, then rank the candidate owning teams, then validate the ownership boundary. Each phase is inspectable on its own, so a wrong answer can be traced to the step that produced it. Every inference is grounded in a structured internal triage playbook and over 56,000 historical ticket transitions, which stops the model inventing destinations that do not exist.</dd></div>
+            <div><dt class="result">result</dt><dd>Verifiable routing recommendations in seconds rather than minutes, supporting a <strong>79% first-pass resolution rate with a 1.57% bounce rate</strong> across 24,473 audited tickets, benchmarked against a 36-scenario suite.</dd></div>
           </dl>
           <div class="tags"><span class="tag">prompt chaining</span><span class="tag">few-shot ICL</span><span class="tag">RAG grounding</span><span class="tag">Gemini API</span><span class="tag">ownership mapping</span></div>
         </div>
@@ -529,7 +529,7 @@ footer{
         <div class="rec-body">
           <dl>
             <div><dt class="problem">problem</dt><dd>Visual UI regressions and native crashes routinely escaped keyword search. The same defect got filed three times under three unrelated titles, fracturing engineering effort across duplicate threads.</dd></div>
-            <div><dt class="action">action</dt><dd>Built a duplicate detection agent combining screenshot keyframe OCR, crash backtrace filtering, and semantic similarity clustering. A dual-signal matching prompt weighs visual UI evidence against stack trace fingerprints rather than trusting either alone. Every proposal is emitted as structured markdown for human triage sign-off. The agent never merges anything on its own authority.</dd></div>
+            <div><dt class="action">action</dt><dd>Built a duplicate detection agent combining screenshot keyframe OCR, crash backtrace filtering, and semantic similarity clustering, matched against a curated library of 1,300+ master bug signatures. A dual-signal matching prompt weighs visual UI evidence against stack trace fingerprints rather than trusting either alone. Every proposal is emitted as structured markdown for human triage sign-off. The agent never merges anything on its own authority.</dd></div>
             <div><dt class="result">result</dt><dd>Surfaced and linked visual duplicates to canonical master issues, accelerating deduplication cycles while keeping <strong>full human operational control</strong> over every merge.</dd></div>
           </dl>
           <div class="tags"><span class="tag">multimodal vision</span><span class="tag">OCR</span><span class="tag">semantic similarity</span><span class="tag">HITL review</span><span class="tag">backtrace fingerprinting</span></div>
@@ -542,16 +542,16 @@ footer{
             <span class="chip p0">P0</span><span>SYS-04</span><span>·</span><span>latency fix</span>
             <span class="rec-toggle" style="margin-left:auto"></span>
           </div>
-          <h3 class="rec-title">Log-slicing &amp; context optimization pipeline</h3>
-          <div class="rec-stack">Unstructured ingestion · heuristic chunking · context window optimization</div>
+          <h3 class="rec-title">Log-slicing pipeline &amp; one-click triage extension</h3>
+          <div class="rec-stack">Unstructured ingestion · heuristic chunking · context window optimization · browser extension tooling</div>
         </summary>
         <div class="rec-body">
           <dl>
             <div><dt class="problem">problem</dt><dd>Raw Android bug reports run 50 to 100&nbsp;MB compressed and well past a million log lines. Handing one straight to a model meant a context window overflow or a request timeout, every time.</dd></div>
-            <div><dt class="action">action</dt><dd>Built a deterministic log-slicing and heuristic chunking pre-processor that sits between the local terminal and the browser extension panel the triager actually reads. It filters raw dumps down to high-signal diagnostic windows, isolating <code>FATAL EXCEPTION</code> blocks, native tombstones, and package manager state inside bounded pre-crash and post-crash buffers. What reaches the model is roughly a 5&nbsp;KB payload instead of a 100&nbsp;MB archive.</dd></div>
+            <div><dt class="action">action</dt><dd>Built a deterministic log-slicing and heuristic chunking pre-processor that sits between the local terminal and the browser extension panel the triager actually reads. It filters raw dumps down to high-signal diagnostic windows, isolating <code>FATAL EXCEPTION</code> blocks, native tombstones, and package manager state inside bounded pre-crash and post-crash buffers. What reaches the model is roughly a 5&nbsp;KB payload instead of a 100&nbsp;MB archive. Paired the pipeline with a one-click triage browser extension and automated reminder bots in team chat, built proactively for partner teams outside the core triage group.</dd></div>
             <div><dt class="result">result</dt><dd>Eliminated context timeouts outright. Root-cause analysis went from a failed request to a <strong>sub-3-second automated summary</strong> rendered directly in the triage browser panel.</dd></div>
           </dl>
-          <div class="tags"><span class="tag">heuristic chunking</span><span class="tag">tombstone parsing</span><span class="tag">context optimization</span><span class="tag">latency reduction</span><span class="tag">JavaScript</span></div>
+          <div class="tags"><span class="tag">heuristic chunking</span><span class="tag">tombstone parsing</span><span class="tag">context optimization</span><span class="tag">latency reduction</span><span class="tag">JavaScript</span><span class="tag">browser extensions</span></div>
         </div>
       </details>
     </section>
@@ -575,13 +575,15 @@ footer{
         <div class="rec-body">
           <ul>
             <li><strong>Platform build validation.</strong> Validated Android OS releases across 5,000+ internal and 1P dogfood applications using changelist bisection and stack trace diagnostics, uncovering 20+ platform and application regressions daily before production release.</li>
-            <li><strong>Defect pipeline governance.</strong> Directed high-volume triage queues across cross-functional engineering teams, accelerating P0 and P1 resolution inside strict SLA windows. Recognised with the Google Glory Award.</li>
+            <li><strong>Defect pipeline governance.</strong> Directed high-volume triage queues across cross-functional engineering teams, accelerating P0 and P1 resolution inside strict SLA windows. Recognised with the ENG RISE Business Ninja Award and the Google Glory Award.</li>
             <li><strong>Triage automation.</strong> Proposed, engineered and deployed automated bug-classification and auto-labelling workflows in JavaScript and Google Apps Script, removing ~60% of manual triage toil and cutting MTTR by ~35%.</li>
+            <li><strong>Cross-team automation.</strong> Took the initiative to build tooling for partner teams outside the core triage group: a one-click triage browser extension and automated reminder bots in team chat, both wired into the defect management platform. Earned a leadership showcase recognition for the initiative.</li>
             <li><strong>Telemetry ingestion.</strong> Extracted and normalised semi-structured telemetry and unstructured device logs from large Android bug reports, feeding diagnostic snippets into LLM workflows for rapid root-cause isolation.</li>
+            <li><strong>Playbooks &amp; rapid-response ownership.</strong> Authored a three-volume triage playbook covering 71+ applications and standardised four-part diagnostic templates. Stepped up as primary point of contact for fast-turnaround client requirements and KPI dashboard logic audits, with a 91% approval rate on quality accuracy appeals.</li>
             <li><strong>Infotainment validation.</strong> Tested Android Auto in-vehicle environments across builds for UI responsiveness, Bluetooth audio focus arbitration, and multi-display stability.</li>
-            <li><strong>Executive KPI analytics.</strong> Partnered with Google engineering leads to define Triage Dashboard KPIs, extracting backend defect metrics through PLX SQL queries and validating data accuracy ahead of leadership review.</li>
+            <li><strong>Executive KPI analytics.</strong> Partnered with Google engineering leads to define Triage Dashboard KPIs, extracting backend defect metrics across 24,400+ tickets through large-scale SQL queries and validating data accuracy ahead of leadership review.</li>
           </ul>
-          <div class="tags"><span class="tag">Android OS validation</span><span class="tag">ADB CLI</span><span class="tag">Logcat</span><span class="tag">CL bisection</span><span class="tag">tombstones</span><span class="tag">issue tracking</span><span class="tag">Apps Script</span><span class="tag">PLX SQL</span><span class="tag">Android Auto</span></div>
+          <div class="tags"><span class="tag">Android OS validation</span><span class="tag">ADB CLI</span><span class="tag">Logcat</span><span class="tag">CL bisection</span><span class="tag">tombstones</span><span class="tag">issue tracking</span><span class="tag">Apps Script</span><span class="tag">SQL analytics</span><span class="tag">browser extensions</span><span class="tag">Android Auto</span></div>
         </div>
       </details>
 
@@ -591,7 +593,7 @@ footer{
             <span class="chip neutral">PRIOR</span><span>Mar 2023 to Oct 2024</span><span>·</span><span>Hyderabad</span>
             <span class="rec-toggle" style="margin-left:auto"></span>
           </div>
-          <h3 class="rec-title">System Engineer, QA Associate and Salesforce SME</h3>
+          <h3 class="rec-title">System Associate, QA Associate and Salesforce SME</h3>
           <div class="rec-stack">Infosys Limited · Johnson Controls B2B Project</div>
         </summary>
         <div class="rec-body">
@@ -680,6 +682,7 @@ footer{
             <li>declarative agent config</li>
             <li>Postman REST testing</li>
             <li>Git &amp; CI/CD pipelines</li>
+            <li>browser extension tooling (AI-assisted)</li>
           </ul>
         </div>
       </div>
@@ -722,6 +725,11 @@ footer{
 
         <div>
           <h3 class="sub">honors</h3>
+          <div class="honor">
+            <div class="when">August 2026</div>
+            <div class="what">ENG RISE Award, Business Ninja</div>
+            <p>Infosys RISE H1-FY27, Individual Category (Engineering Services). Awarded for business excellence, seamless execution of project deliverables, and outstanding cross-team impact.</p>
+          </div>
           <div class="honor">
             <div class="when">February 2026</div>
             <div class="what">Google Glory Award, Good Performer</div>
